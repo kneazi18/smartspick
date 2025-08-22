@@ -4,6 +4,7 @@ import './globals.css';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ErrorBoundary from "../components/ErrorBoundary";
+import Script from 'next/script';
 
 // const inter = Inter({ subsets: ['latin'] });
 
@@ -58,6 +59,7 @@ export default function RootLayout({
         <html lang="en" className="scroll-smooth">
         {/*<body className={`${inter.className} antialiased`}>*/}
         <body className={`antialiased`}>
+
         <div className="min-h-screen flex flex-col">
             <ErrorBoundary showErrorDetails={process.env.NODE_ENV === 'development'}>
                 <Header/>
@@ -67,6 +69,19 @@ export default function RootLayout({
                 <Footer/>
             </ErrorBoundary>
         </div>
+
+        <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-JTWH300KE1"
+            strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+            {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-JTWH300KE1');
+            `}
+        </Script>
         </body>
         </html>
     );
