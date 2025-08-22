@@ -35,6 +35,9 @@ RUN \
   else echo "Lockfile not found." && exit 1; \
   fi
 
+# Ensure public directory exists for copying
+RUN mkdir -p /app/public
+
 # Production image, copy all the files and run next
 FROM base AS runner
 WORKDIR /app
