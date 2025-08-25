@@ -13,7 +13,26 @@ export const metadata: Metadata = {
     description: 'Explore all product categories available on SmartsPicks. Find the perfect products for your needs.',
     alternates: {
         canonical: '/categories'
-    }
+    },
+    openGraph: {
+        title: 'All Categories - SmartsPicks',
+        description: 'Explore all product categories available on SmartsPicks. Find the perfect products for your needs.',
+        images: [
+            {
+                url: categories[0]?.image || '/images/hero-products.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'SmartsPicks Categories',
+            }
+        ],
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'All Categories - SmartsPicks',
+        description: 'Explore all product categories available on SmartsPicks. Find the perfect products for your needs.',
+        images: [categories[0]?.image || '/images/hero-products.jpg'],
+    },
 };
 
 export default function CategoriesPage() {

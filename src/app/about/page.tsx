@@ -8,7 +8,26 @@ export const metadata: Metadata = {
     description: 'Learn more about the SmartsPicks team and our mission to help you find the best products on Amazon.',
     alternates: {
         canonical: '/about'
-    }
+    },
+    openGraph: {
+        title: 'About Us - SmartsPicks',
+        description: 'Learn more about the SmartsPicks team and our mission to help you find the best products on Amazon.',
+        images: [
+            {
+                url: '/images/aboutUs-hero.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'About SmartsPicks Team',
+            }
+        ],
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'About Us - SmartsPicks',
+        description: 'Learn more about the SmartsPicks team and our mission to help you find the best products on Amazon.',
+        images: ['/images/aboutUs-hero.jpg'],
+    },
 };
 
 export default function AboutPage() {

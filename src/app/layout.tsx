@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         description: 'Discover the best Amazon products with honest reviews and trusted recommendations.',
         images: [
             {
-                url: '/images/og-image.jpg',
+                url: '/images/hero-products.jpg',
                 width: 1200,
                 height: 630,
                 alt: 'SmartsPicks - The Best Amazon Products',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'SmartsPicks - The Best Amazon Products',
         description: 'Discover the best Amazon products with honest reviews and trusted recommendations.',
-        images: ['/images/og-image.jpg'],
+        images: ['/images/hero-products.jpg'],
     },
     icons: {
         icon: '/favicon.ico',

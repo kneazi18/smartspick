@@ -9,7 +9,26 @@ export const metadata: Metadata = {
     description: 'Useful guides, detailed reviews and tips to make the best shopping choices.',
     alternates: {
         canonical: '/blog'
-    }
+    },
+    openGraph: {
+        title: 'Blog - SmartsPicks',
+        description: 'Useful guides, detailed reviews and tips to make the best shopping choices.',
+        images: [
+            {
+                url: '/images/blog/blog-hero.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'SmartsPicks Blog',
+            }
+        ],
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Blog - SmartsPicks',
+        description: 'Useful guides, detailed reviews and tips to make the best shopping choices.',
+        images: ['/images/blog/blog-hero.jpg'],
+    },
 };
 
 export default function BlogPage() {
