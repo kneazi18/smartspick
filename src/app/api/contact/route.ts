@@ -113,13 +113,10 @@ export async function POST(request: NextRequest) {
 
       if (!isAllowedOrigin) {
         console.log(`Blocked request from origin: ${requestOrigin}`);
-        console.log(`Allowed origins: ${allowedOrigins.join(', ')}`);
-        // In production, be more permissive initially to debug
-        console.log('Allowing request temporarily for debugging...');
-        // return NextResponse.json(
-        //   { error: 'Invalid request origin' },
-        //   { status: 403 }
-        // );
+        return NextResponse.json(
+          { error: 'Invalid request origin' },
+          { status: 403 }
+        );
       }
     }
 
@@ -193,8 +190,8 @@ export async function POST(request: NextRequest) {
     console.log('All validations passed, attempting to send email...');
     
     // Check environment variables
-    const emailUser = process.env.EMAIL_USER;
-    const emailPass = process.env.EMAIL_PASS;
+    const emailUser = "smartspicks@gmail.com";
+    const emailPass = "udzz ebqe kvbn hozi";
     
     if (!emailUser || !emailPass) {
       console.error('Missing email configuration:', {
