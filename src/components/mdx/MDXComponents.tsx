@@ -1,10 +1,12 @@
 import { MDXComponents } from 'mdx/types';
 import { ImgHTMLAttributes } from 'react';
 import AffiliateProduct from './AffiliateProduct';
+import PrimeBanner from './PrimeBanner';
 import Image from 'next/image';
 
 export const mdxComponents: MDXComponents = {
     AffiliateProduct,
+    PrimeBanner,
     img: (props: ImgHTMLAttributes<HTMLImageElement>) => (
         <Image
             src={props.src || ''}

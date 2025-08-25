@@ -14,6 +14,12 @@ interface AffiliateProductProps {
     features?: string[];
     rating?: number;
     originalPrice?: number;
+    // Banner mode props
+    banner?: boolean;
+    bannerTitle?: string;
+    bannerDescription?: string;
+    buttonText?: string;
+    variant?: 'orange' | 'dark';
 }
 
 const AffiliateProduct: React.FC<AffiliateProductProps> = ({
@@ -24,8 +30,44 @@ const AffiliateProduct: React.FC<AffiliateProductProps> = ({
     amazonUrl: amazonUrlOverride,
     features: featuresOverride,
     rating: ratingOverride,
-    originalPrice
+    originalPrice,
+    banner = false,
+    bannerTitle,
+    bannerDescription,
+    buttonText = "Start FREE Trial Now →",
+    variant = 'orange'
 }) => {
+    // Banner mode - simple promotional banner
+    if (banner) {
+        const isOrange = variant === 'orange';
+        
+        return (
+            <div className={`my-8 p-6 rounded-xl text-center shadow-lg ${
+                isOrange 
+                    ? 'bg-gradient-to-r from-orange-500 to-orange-400' 
+                    : 'bg-gray-900 border-2 border-orange-500'
+            }`}>
+                <h3 className={`text-xl font-bold mb-3 ${isOrange ? 'text-white' : 'text-orange-500'}`}>
+                    {bannerTitle}
+                </h3>
+                <p className={`mb-4 text-base ${isOrange ? 'text-white' : 'text-white'}`}>
+                    {bannerDescription}
+                </p>
+                <Button
+                    href={amazonUrlOverride || "https://amazon.com/amazonprime"}
+                    variant="primary"
+                    className={`inline-block px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 ${
+                        isOrange 
+                            ? 'bg-white text-orange-600 hover:bg-gray-100' 
+                            : 'bg-orange-500 text-white hover:bg-orange-600'
+                    }`}
+                >
+                    {buttonText}
+                </Button>
+            </div>
+        );
+    }
+
     // Find product in database
     const product = products.find(p => p.id === id);
     

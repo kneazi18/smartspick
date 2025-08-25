@@ -65,5 +65,18 @@ export const blogPosts: BlogPost[] = [
         readTime: 6,
         tags: ['macbook', 'programming', 'productivity', 'apple', 'M4 chip', 'development'],
         category: 'electronics'
+    },
+    {
+        id: '6',
+        slug: 'amazon-prime-complete-guide-2025',
+        title: 'Amazon Prime Complete Guide 2025: Is It Worth Your Money? Benefits, Cost & Expert Review',
+        excerpt: 'Discover everything about Amazon Prime in 2025: pricing, benefits, exclusive features, and whether the subscription is worth it for your lifestyle and shopping habits.',
+        content: 'Full article content...',
+        image: '/images/blog/posts/amazon-prime-guide-2025.webp',
+        author: 'SmartsPicks',
+        publishedAt: '2025-08-25',
+        readTime: 12,
+        tags: ['amazon prime', 'subscription services', 'shopping', 'entertainment', 'prime video', '2025'],
+        category: 'Shopping & Reviews'
     }
 ];

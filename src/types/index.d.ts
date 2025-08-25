@@ -26,7 +26,7 @@ export interface BlogPost {
     publishedAt: string;
     readTime: number;
     tags: string[];
-    category: string;
+    category?: string;
 }
 
 export interface Category {
