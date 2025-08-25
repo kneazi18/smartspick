@@ -12,7 +12,7 @@ export interface BlogPostMeta {
     image: string;
     date: string;
     author: string;
-    category: string;
+    category?: string;
     tags: string[];
     readTime: number;
     publishedAt?: string;

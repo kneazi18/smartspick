@@ -11,7 +11,7 @@ export interface SearchResult {
     url: string;
     image?: string;
     price?: number;
-    category?: string;
+    category: string;
 }
 
 // Client-side search function (for immediate results)
@@ -46,15 +46,15 @@ export function searchAll(query: string): SearchResult[] {
         post.excerpt.toLowerCase().includes(searchTerm) ||
         post.content.toLowerCase().includes(searchTerm) ||
         post.tags.some(tag => tag.toLowerCase().includes(searchTerm)) ||
-        post.category.toLowerCase().includes(searchTerm)
+        (post.category && post.category.toLowerCase().includes(searchTerm))
     ).map(post => ({
         type: 'blog' as const,
-        id: post.id,
+        id: post.id || post.slug,
         title: post.title,
         description: post.excerpt,
         url: `/blog/${post.slug}`,
         image: post.image,
-        category: post.category
+        category: post.category || 'general'
     }));
 
     // Search categories
@@ -119,6 +119,6 @@ export function searchBlogPosts(query: string): BlogPost[] {
         post.excerpt.toLowerCase().includes(searchTerm) ||
         post.content.toLowerCase().includes(searchTerm) ||
         post.tags.some(tag => tag.toLowerCase().includes(searchTerm)) ||
-        post.category.toLowerCase().includes(searchTerm)
+        (post.category && post.category.toLowerCase().includes(searchTerm))
     );
 }

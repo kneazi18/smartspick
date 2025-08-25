@@ -18,7 +18,7 @@ interface BlogPost {
     date?: string;
     readTime: number;
     tags: string[];
-    category: string;
+    category?: string;
 }
 
 interface BlogPageContentProps {
