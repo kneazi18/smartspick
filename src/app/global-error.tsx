@@ -19,8 +19,6 @@ export default function GlobalError({
     }, [error]);
 
     return (
-        <html>
-        <body>
         <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
             <div className="max-w-md w-full text-center space-y-8">
                 <div className="space-y-4">
@@ -66,7 +64,5 @@ export default function GlobalError({
                 </div>
             </div>
         </div>
-        </body>
-        </html>
     );
 }

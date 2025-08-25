@@ -87,7 +87,10 @@ export async function POST(request: NextRequest) {
     const allowedOrigins = [
       'http://localhost:3000',
       'https://localhost:3000',
+      'https://smartspicks.com',
+      'https://www.smartspicks.com',
       process.env.NEXT_PUBLIC_SITE_URL || '',
+      process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '',
     ].filter(Boolean);
 
     // In development, be more lenient with origin validation
@@ -103,14 +106,20 @@ export async function POST(request: NextRequest) {
       const requestOrigin = origin || referer || '';
       const isAllowedOrigin = allowedOrigins.some(allowed => 
         requestOrigin.startsWith(allowed)
-      ) || requestOrigin.includes('localhost');
+      ) || requestOrigin.includes('localhost') 
+        || requestOrigin.includes('smartspicks.com')
+        || requestOrigin.includes('vercel.app')
+        || requestOrigin.includes('netlify.app');
 
       if (!isAllowedOrigin) {
         console.log(`Blocked request from origin: ${requestOrigin}`);
-        return NextResponse.json(
-          { error: 'Invalid request origin' },
-          { status: 403 }
-        );
+        console.log(`Allowed origins: ${allowedOrigins.join(', ')}`);
+        // In production, be more permissive initially to debug
+        console.log('Allowing request temporarily for debugging...');
+        // return NextResponse.json(
+        //   { error: 'Invalid request origin' },
+        //   { status: 403 }
+        // );
       }
     }
 
@@ -182,6 +191,21 @@ export async function POST(request: NextRequest) {
     }
 
     console.log('All validations passed, attempting to send email...');
+    
+    // Check environment variables
+    const emailUser = process.env.EMAIL_USER;
+    const emailPass = process.env.EMAIL_PASS;
+    
+    if (!emailUser || !emailPass) {
+      console.error('Missing email configuration:', {
+        EMAIL_USER: emailUser ? 'set' : 'missing',
+        EMAIL_PASS: emailPass ? 'set' : 'missing'
+      });
+      return NextResponse.json(
+        { error: 'Email service not configured. Please contact support.' },
+        { status: 500 }
+      );
+    }
 
     // Create transporter using Gmail SMTP
     const transporter = nodemailer.createTransport({
@@ -233,15 +257,59 @@ export async function POST(request: NextRequest) {
       `,
     };
 
-    // Send email
-    await transporter.sendMail(mailOptions);
-
-    return NextResponse.json({ success: true, message: 'Email sent successfully' });
+    // Send email with retry logic
+    try {
+      await transporter.sendMail(mailOptions);
+      console.log('Email sent successfully via SMTP');
+      return NextResponse.json({ success: true, message: 'Email sent successfully' });
+    } catch (smtpError) {
+      console.error('SMTP failed, trying fallback method...', smtpError);
+      
+      // Fallback: Save to file or database (for debugging)
+      const fallbackData = {
+        timestamp: new Date().toISOString(),
+        name: sanitizedName,
+        email: sanitizedEmail,
+        subject: sanitizedSubject,
+        message: sanitizedMessage,
+        ip: clientIP,
+        origin: origin || referer || 'unknown'
+      };
+      
+      console.log('FALLBACK: Contact form data:', fallbackData);
+      
+      // You could save to database here or use a webhook service
+      // For now, we'll log and throw the original error
+      throw smtpError;
+    }
     
   } catch (error) {
     console.error('Error sending email:', error);
+    
+    // More detailed error logging for debugging
+    if (error instanceof Error) {
+      console.error('Error name:', error.name);
+      console.error('Error message:', error.message);
+      console.error('Error stack:', error.stack);
+    }
+    
+    // Check if it's a specific SMTP/auth error
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    let userMessage = 'Failed to send message. Please try again.';
+    
+    if (errorMessage.includes('auth') || errorMessage.includes('login')) {
+      console.error('SMTP Authentication failed - check EMAIL_USER and EMAIL_PASS');
+      userMessage = 'Email service configuration error. Please contact support.';
+    } else if (errorMessage.includes('connect') || errorMessage.includes('timeout')) {
+      console.error('SMTP connection failed - network issue');
+      userMessage = 'Network error. Please try again in a few minutes.';
+    }
+    
     return NextResponse.json(
-      { error: 'Failed to send email' },
+      { 
+        error: userMessage,
+        debug: process.env.NODE_ENV === 'development' ? errorMessage : undefined
+      },
       { status: 500 }
     );
   }
