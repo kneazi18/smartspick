@@ -142,6 +142,7 @@ function SearchContent() {
                             type="submit"
                             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary-600 transition-colors"
                             disabled={isLoading}
+                            aria-label={isLoading ? "Searching..." : "Search products"}
                         >
                             <Search className={`w-6 h-6 ${isLoading ? 'animate-spin' : ''}`} />
                         </button>

@@ -245,6 +245,7 @@ export default function HomePage() {
                                 type="submit"
                                 variant="secondary"
                                 className="px-8 py-3 bg-white text-primary-600 hover:bg-gray-100 border-0"
+                                aria-label="Subscribe to newsletter"
                             >
                                 Subscribe
                             </Button>

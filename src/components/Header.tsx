@@ -54,6 +54,7 @@ const Header: React.FC = () => {
                             <button
                                 type="submit"
                                 className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary-600"
+                                aria-label="Search products"
                             >
                                 <Search className="w-5 h-5" />
                             </button>
@@ -64,6 +65,8 @@ const Header: React.FC = () => {
                     <button
                         onClick={toggleMenu}
                         className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+                        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                        aria-expanded={isMenuOpen}
                     >
                         {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                     </button>
@@ -181,6 +184,7 @@ const Header: React.FC = () => {
                                 <button
                                     type="submit"
                                     className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400"
+                                    aria-label="Search products"
                                 >
                                     <Search className="w-5 h-5" />
                                 </button>

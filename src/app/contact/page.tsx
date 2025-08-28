@@ -238,6 +238,7 @@ export default function ContactPage() {
                                         type="submit"
                                         disabled={isSubmitting}
                                         className="w-full bg-primary-600 text-white py-3 px-6 rounded-lg hover:bg-primary-700 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                                        aria-label={isSubmitting ? "Sending message..." : "Send message"}
                                     >
                                         {isSubmitting ? (
                                             <>

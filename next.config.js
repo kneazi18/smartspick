@@ -9,9 +9,13 @@ const nextConfig = {
     workerThreads: false,
   },
 
-  // Disable image optimization temporarily
+  // Image optimization enabled for better performance
   images: {
-    unoptimized: true
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 60,
+    dangerouslyAllowSVG: false,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
   // Performance optimizations
@@ -93,6 +97,12 @@ const nextConfig = {
       {
         source: '/&',
         destination: '/',
+        permanent: true,
+      },
+      // Force HTTPS and consistent blog URL
+      {
+        source: '/blog/',
+        destination: '/blog',
         permanent: true,
       },
     ];

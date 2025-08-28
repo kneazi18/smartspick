@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: 'Blog - SmartsPicks',
     description: 'Useful guides, detailed reviews and tips to make the best shopping choices.',
     alternates: {
-        canonical: '/blog'
+        canonical: 'https://smartspicks.com/blog'
     },
     openGraph: {
         title: 'Blog - SmartsPicks',
@@ -58,9 +58,13 @@ export default function BlogPage() {
                     fill
                     className="absolute inset-0 object-cover"
                     priority
+                    sizes="100vw"
+                    quality={85}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 />
                 {/* Overlay for text readability */}
-                <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+                <div className="absolute inset-0 bg-black bg-opacity-50"/>
 
                 <div className="container-custom relative z-10">
                     <div className="text-center space-y-4">

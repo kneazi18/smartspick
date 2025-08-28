@@ -92,6 +92,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
                 <Link
                     href={`/blog/${slug}`}
                     className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm group/link transition-colors"
+                    aria-label={`Read more about ${title}`}
                 >
                     Read more
                     <ArrowRight className="w-4 h-4 ml-1 group-hover/link:translate-x-1 transition-transform duration-200" />

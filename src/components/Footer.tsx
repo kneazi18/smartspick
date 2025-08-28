@@ -169,6 +169,7 @@ const Footer: React.FC = () => {
                                 <button
                                     type="submit"
                                     className="px-4 py-2 bg-primary-600 hover:bg-primary-700 rounded-r-lg transition-colors text-sm font-medium"
+                                    aria-label="Subscribe to newsletter"
                                 >
                                     Subscribe
                                 </button>
