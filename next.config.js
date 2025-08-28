@@ -11,8 +11,7 @@ const nextConfig = {
 
   // Image optimization enabled for better performance
   images: {
-    formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 60,
+    unoptimized: true, // Temporary: disable optimization for instant loading
     dangerouslyAllowSVG: false,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
