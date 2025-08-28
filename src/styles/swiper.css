@@ -1,0 +1,31 @@
+/* Swiper custom styles */
+.products-swiper {
+  padding-bottom: 2rem;
+}
+
+.products-swiper .swiper-pagination {
+  bottom: 0;
+}
+
+.products-swiper .swiper-pagination-bullet {
+  background-color: #fb923c;
+  width: 8px;
+  height: 8px;
+  opacity: 0.3;
+}
+
+.products-swiper .swiper-pagination-bullet-active {
+  background-color: #ea580c;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.products-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.products-swiper .swiper-slide > div {
+  height: 100%;
+  width: 100%;
+}

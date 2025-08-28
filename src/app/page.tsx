@@ -6,11 +6,13 @@ import {products} from "../data/products";
 import {blogPosts} from "../data/blogPosts";
 import {categories} from "../data/categories";
 import {Product, BlogPost, Category} from "../types";
-import CardProduct from "../components/ui/CardProduct";
 import dynamic from 'next/dynamic';
 import { CategoryMenuSkeleton, BlogCardSkeleton } from "../components/ui/Skeletons";
 import StructuredData from "../components/StructuredData";
 import { generateOrganizationStructuredData, generateWebsiteStructuredData } from "../lib/structured-data";
+
+
+import ProductsSwiper from '../components/ProductsSwiper';
 
 // Dynamic imports for components below the fold
 const CategoryMenu = dynamic(() => import("../components/CategoryMenu"), {
@@ -21,7 +23,7 @@ const BlogCard = dynamic(() => import("../components/BlogCard"), {
 });
 
 export default function HomePage() {
-    const featuredProducts: Product[] = products.slice(0, 4);
+    const featuredProducts: Product[] = products.slice(0, 12); // More products for Swiper
     const latestPosts: BlogPost[] = blogPosts
         .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
         .slice(0, 3);
@@ -171,13 +173,7 @@ export default function HomePage() {
                             <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
                         </Link>
                     </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {featuredProducts.map((product: Product) => (
-                            <CardProduct key={product.id} product={product} />
-                        ))}
-                    </div>
-
+                    <ProductsSwiper products={featuredProducts} />
                     <div className="text-center mt-8 md:hidden">
                         <Button href="/products" variant="primary">
                             View all products

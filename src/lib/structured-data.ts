@@ -60,7 +60,22 @@ export function generateProductStructuredData(product: Product, siteUrl: string 
         "@type": "MerchantReturnPolicy",
         "applicableCountry": "US",
         "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-        "merchantReturnDays": 30
+        "merchantReturnDays": 30,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn",
+        "merchantReturnLink": "https://www.amazon.com/returns",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "returnPolicyProvider",
+            "value": "Affiliate merchant handles all returns and refunds"
+          },
+          {
+            "@type": "PropertyValue", 
+            "name": "returnPolicyNote",
+            "value": "Returns are processed by the affiliate store according to their policies"
+          }
+        ]
       }
     },
     "aggregateRating": {
