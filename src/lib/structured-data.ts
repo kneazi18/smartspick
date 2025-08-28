@@ -205,7 +205,7 @@ export function generateProductCollectionStructuredData(
         "item": {
           "@type": "Product",
           "name": product.title,
-          "url": `/products/${product.id}`,
+          "url": `${siteUrl}/products/${product.slug}`,
           "image": product.image,
           "offers": {
             "@type": "Offer",
