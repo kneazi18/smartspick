@@ -2,6 +2,19 @@ import { BlogPost } from "../types";
 
 export const blogPosts: BlogPost[] = [
     {
+        id: '7',
+        slug: 'iphone-17-apple-boldest-step-yet',
+        title: 'iPhone 17 – Apple\'s Boldest Step Yet',
+        excerpt: 'Apple unveils the iPhone 17 lineup with four models: iPhone 17, iPhone 17 Air, iPhone 17 Pro, and iPhone 17 Pro Max. From ultra-thin design to cutting-edge A19 processors and iOS 26.',
+        content: 'Full article content...',
+        image: '/images/blog/posts/iphone-17-apple-boldest.jpg',
+        author: 'SmartsPicks',
+        publishedAt: '2025-09-10',
+        readTime: 12,
+        tags: ['iPhone 17', 'Apple', 'smartphone', 'technology', '2025', 'review'],
+        category: 'electronics'
+    },
+    {
         id: '1',
         slug: 'top-5-iems-gaming-2025',
         title: 'Top 5 In-Ear Monitors for Gaming in 2025 – Expert Recommendations & Buying Guide',
