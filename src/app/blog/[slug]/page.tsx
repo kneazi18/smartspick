@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: BlogSlugPageProps) {
             images: [post.image],
         },
         alternates: {
-            canonical: `/blog/${post.slug}`,
+            canonical: `https://smartspicks.com/blog/${post.slug}`,
         },
     };
 }

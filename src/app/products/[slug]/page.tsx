@@ -30,7 +30,7 @@ export async function generateMetadata({params}: ProductPageProps): Promise<Meta
         description: product.description,
         keywords: [product.title, product.category, 'review', 'product', 'amazon', 'buy'].join(', '),
         alternates: {
-            canonical: `/products/${slug}`
+            canonical: `https://smartspicks.com/products/${slug}`
         },
         openGraph: {
             title: product.title,

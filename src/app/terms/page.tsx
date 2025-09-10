@@ -4,7 +4,7 @@ export const metadata: Metadata = {
     title: 'Terms and Conditions | SmartsPicks',
     description: 'Terms and Conditions for SmartsPicks - Read our terms of service and user agreement.',
     alternates: {
-        canonical: '/terms'
+        canonical: 'https://smartspicks.com/terms'
     }
 };
 

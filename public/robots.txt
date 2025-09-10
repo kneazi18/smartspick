@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# Block problematic URLs
+Disallow: /search?q={search_term_string}
+Disallow: /*?pr_prod_strat=*
+Disallow: /*?pr_rec_id=*
+Disallow: /*?pr_rec_pid=*
+Disallow: /*?pr_ref_pid=*
+Disallow: /*?pr_seq=*
+
+# Block admin and sensitive areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+
+# Allow important pages
+Allow: /
+Allow: /blog
+Allow: /categories
+Allow: /about
+Allow: /contact
+Allow: /privacy-policy
+Allow: /terms
+
+# Sitemap
+Sitemap: https://smartspicks.com/sitemap.xml

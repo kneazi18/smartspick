@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: 'About Us - SmartsPicks',
     description: 'Learn more about the SmartsPicks team and our mission to help you find the best products on Amazon.',
     alternates: {
-        canonical: '/about'
+        canonical: 'https://smartspicks.com/about'
     },
     openGraph: {
         title: 'About Us - SmartsPicks',

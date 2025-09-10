@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     authors: [{name: 'SmartsPicks Team'}],
     creator: 'SmartsPicks',
     alternates: {
-        canonical: '/'
+        canonical: 'https://smartspicks.com/'
     },
     publisher: 'SmartsPicks',
     robots: 'index, follow',

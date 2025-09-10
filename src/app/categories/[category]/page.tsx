@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
         title: `${category.name} - SmartsPicks`,
         description: category.description,
         alternates: {
-            canonical: `/categories/${categorySlug}`
+            canonical: `https://smartspicks.com/categories/${categorySlug}`
         },
         openGraph: {
             title: `${category.name} - SmartsPicks`,

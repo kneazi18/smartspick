@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'All Categories - SmartsPicks',
     description: 'Explore all product categories available on SmartsPicks. Find the perfect products for your needs.',
     alternates: {
-        canonical: '/categories'
+        canonical: 'https://smartspicks.com/categories'
     },
     openGraph: {
         title: 'All Categories - SmartsPicks',

@@ -4,7 +4,7 @@ export const metadata: Metadata = {
     title: 'Privacy Policy | SmartsPicks',
     description: 'Privacy Policy for SmartsPicks - Learn how we collect, use, and protect your personal information.',
     alternates: {
-        canonical: '/privacy-policy'
+        canonical: 'https://smartspicks.com/privacy-policy'
     }
 };
 
